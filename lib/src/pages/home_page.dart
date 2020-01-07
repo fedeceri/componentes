@@ -32,6 +32,7 @@ class HomePage extends StatelessWidget {
 
     return FutureBuilder(
       future: menuProvider.cargarData(),
+      initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot){
         print('builder');
         print(snapshot.data);
@@ -47,6 +48,8 @@ class HomePage extends StatelessWidget {
   List<Widget> _listaItems(List<dynamic> data, BuildContext context) {
    
     final List<Widget> opciones = [];
+
+
     data.forEach((opt){
       final widgetTemp = ListTile(
         title: Text(opt['texto']),
